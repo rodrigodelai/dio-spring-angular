@@ -1,0 +1,68 @@
+html {
+      background-color: #F5F5F6;
+}
+
+body {
+    background-color: #FFF;
+    border: 1px solid red;
+    box-sizing: border-box;
+    margin: 1rem auto;
+    max-width: 940px;
+    min-height: calc(100vh - 2rem);
+    padding: 1rem;
+}
+
+header {
+    border: 1px solid blue;
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+}
+
+main {
+    border: 1px solid blue;
+    display: flex;
+    flex-direction: column;
+    margin: 1rem 0;
+    padding: 1rem;
+}
+
+main > ol {
+    border: 1px solid purple;
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    margin: 1rem 0;
+}
+
+.card {
+    border: 1px solid orange;
+    height: 4.5rem;
+    padding: 1rem;
+}
+
+main > button {
+    align-self: center;
+}
+
+footer {
+    text-align: center;
+}
+
+@media (max-width: 700px) {
+    main > ol {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+@media (max-width: 500px) {
+    main > ol {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 330px) {
+    main > ol {
+        grid-template-columns: 1fr;
+    }
+}
