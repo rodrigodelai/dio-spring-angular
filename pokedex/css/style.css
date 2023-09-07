@@ -15,16 +15,15 @@
 }
 
 .electric {
-    background-color: #F7D02C;
+    background-color: #f6cf37;
 }
 
 .grass {
-    /* background-color: #7AC74C; */
     background-color: rgb(102, 200, 122);
 }
 
 .ice {
-    background-color: #96D9D6;
+    background-color: #88d2ce;
 }
 
 .fighting {
@@ -32,11 +31,11 @@
 }
 
 .poison {
-    background-color: #A33EA1;
+    background-color: #a34ba1;
 }
 
 .ground {
-    background-color: #E2BF65;
+    background-color: #ecc76a;
 }
 
 .flying {
@@ -44,15 +43,15 @@
 }
 
 .psychic {
-    background-color: #F95587;
+    background-color: #f56993;
 }
 
 .bug {
-    background-color: #A6B91A;
+    background-color: #adbd39;
 }
 
 .rock {
-    background-color: #B6A136;
+    background-color: #b7a54c;
 }
 
 .ghost {
@@ -60,7 +59,7 @@
 }
 
 .dragon {
-    background-color: #6F35FC;
+    background-color: #8151f9;
 }
 
 .dark {
@@ -68,11 +67,11 @@
 }
 
 .steel {
-    background-color: #B7B7CE;
+    background-color: #babadc;
 }
 
 .fairy {
-    background-color: #D685AD;
+    background-color: #f393c3;
 }
 
 /* –––––––––– Colors by type –––––––––––– */
@@ -160,7 +159,7 @@ main > ol {
     grid-template-columns: 1fr 1fr 1fr 1fr;
     margin: 1.5rem 0;
     overflow-y: auto;
-    height: calc(60vh);
+    height: calc(80vh - 180px);
     padding-bottom: 4px;
     align-content: start;
 }
@@ -203,12 +202,14 @@ main > ol {
     display: inline-block;
     text-shadow: .5px .5px 1px #ffffff41;
     margin-bottom: .35rem;
+    text-transform: capitalize;
 }
 
 .card span {
     text-align: right;
     display: block;
-    color: #52525330;
+    color: #525253;
+    opacity: .35;
     text-shadow: .5px .5px 1px #52525310;
     font-weight: 900;
     letter-spacing: -.5px;
@@ -220,10 +221,9 @@ main > ol {
     font-size: .6rem;
     padding: .25rem .6rem;
     border-radius: 1rem;
-    /* background-color: rgb(145, 219, 161); */
-    /* background-color: rgb(102, 200, 122); */
     font-weight: 700;
-    filter: brightness(1.1)
+    filter: brightness(1.1);
+    text-transform: capitalize;
 }
 
 .card img {
@@ -244,6 +244,7 @@ main > button {
     font-weight: 700;
     cursor: pointer;
     transition: all .5s;
+    user-select: none;
 }
 
 main > button:hover {
@@ -256,6 +257,11 @@ main > button:active {
     transform: scale(1.02);
     filter: brightness(1);
     box-shadow: .1rem .1rem .1rem #0004;
+}
+
+.disable {
+    filter: grayscale(1);
+    pointer-events: none;
 }
 
 footer {

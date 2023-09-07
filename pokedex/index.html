@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/reset.css">
     <link rel="stylesheet" href="./css/style.css">
+    <script src="./js/model.js"></script>
+    <script src="./js/pokeapi.js"></script>
+    <script src="./js/main.js" defer></script>
     <title> Simple Pokedex </title>
 </head>
 <body>
@@ -19,108 +22,9 @@
     <main>
         <h1>Pokedex</h1>
         <ol class="cards">
-            <li class="card grass">
-                <span class="id">#001</span>
-                <h2>Bulbasaur</h2>
-                <ol class="types">
-                    <li class="grass">Grass</li>
-                    <li class="poison">Poison</li>
-                </ol>
-                <img src="./img/001.png" alt="Bulbasaur">
-            </li>
-            <li class="fire card">
-                <span class="id">#004</span>
-                <h2>Charmander</h2>
-                <ol class="types">
-                    <li class="fire">Fire</li>
-                </ol>
-                <img src="./img/004.png" alt="Charmander">
-            </li>
-            <li class="card water">
-                <span class="id">#007</span>
-                <h2>Squirtle</h2>
-                <ol class="types">
-                    <li class="water">Water</li>
-                </ol>
-                <img src="./img/007.png" alt="Squirtle">
-            </li>
-            <li class="card grass">
-                <span class="id">#001</span>
-                <h2>Bulbasaur</h2>
-                <ol class="types">
-                    <li class="grass">Grass</li>
-                    <li class="poison">Poison</li>
-                </ol>
-                <img src="./img/001.png" alt="Bulbasaur">
-            </li>
-            <li class="fire card">
-                <span class="id">#004</span>
-                <h2>Charmander</h2>
-                <ol class="types">
-                    <li class="fire">Fire</li>
-                </ol>
-                <img src="./img/004.png" alt="Charmander">
-            </li>
-            <li class="card water">
-                <span class="id">#007</span>
-                <h2>Squirtle</h2>
-                <ol class="types">
-                    <li class="water">Water</li>
-                </ol>
-                <img src="./img/007.png" alt="Squirtle">
-            </li>
-            <li class="card grass">
-                <span class="id">#001</span>
-                <h2>Bulbasaur</h2>
-                <ol class="types">
-                    <li class="grass">Grass</li>
-                    <li class="poison">Poison</li>
-                </ol>
-                <img src="./img/001.png" alt="Bulbasaur">
-            </li>
-            <li class="fire card">
-                <span class="id">#004</span>
-                <h2>Charmander</h2>
-                <ol class="types">
-                    <li class="fire">Fire</li>
-                </ol>
-                <img src="./img/004.png" alt="Charmander">
-            </li>
-            <li class="card water">
-                <span class="id">#007</span>
-                <h2>Squirtle</h2>
-                <ol class="types">
-                    <li class="water">Water</li>
-                </ol>
-                <img src="./img/007.png" alt="Squirtle">
-            </li>
-            <li class="card grass">
-                <span class="id">#001</span>
-                <h2>Bulbasaur</h2>
-                <ol class="types">
-                    <li class="grass">Grass</li>
-                    <li class="poison">Poison</li>
-                </ol>
-                <img src="./img/001.png" alt="Bulbasaur">
-            </li>
-            <li class="fire card">
-                <span class="id">#004</span>
-                <h2>Charmander</h2>
-                <ol class="types">
-                    <li class="fire">Fire</li>
-                </ol>
-                <img src="./img/004.png" alt="Charmander">
-            </li>
-            <li class="card water">
-                <span class="id">#007</span>
-                <h2>Squirtle</h2>
-                <ol class="types">
-                    <li class="water">Water</li>
-                </ol>
-                <img src="./img/007.png" alt="Squirtle">
-            </li>
+        <!----- Pokemon cards here! ----->
         </ol>
-        <button type="button">Load more</button>
+        <button type="button" onclick="handleButtonClick()">Load more</button>
     </main>
     <footer>
         <p>Consumindo a PokeAPI – Setembro de 2023</p>
