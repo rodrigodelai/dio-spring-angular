@@ -1,41 +1,43 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+@import url('https://fonts.cdnfonts.com/css/pokemon-solid');
+                
 
 /* –––––––––– Colors by type –––––––––––– */
 
 .fire {
-    background-color: #f28b3d;
+    background: linear-gradient(150deg, #f49c5a, #ef7212);
 }
 
 .normal {
-    background-color: #A8A77A;
+    background: linear-gradient(150deg, #b5b48e, #959461);
 }
 
 .water {
-    background-color: #789eef;
+    background: linear-gradient(150deg, #8cadf1, #487be9);
 }
 
 .electric {
-    background-color: #f6cf37;
+    background: linear-gradient(150deg, #f7d655, #f4c50c);
 }
 
 .grass {
-    background-color: #66c87a;
+    background: linear-gradient(150deg, #75cd87, #308541);
 }
 
 .ice {
-    background-color: #88d2ce;
+    background: linear-gradient(150deg, #92e2de, #62c4be);
 }
 
 .fighting {
-    background-color: #C22E28;
+    background: linear-gradient(150deg, #d7433d, #a52722);
 }
 
-.poison {
-    background-color: #a34ba1;
+.poison {   
+    background: linear-gradient(150deg, #b661b4, #8b4089);
 }
 
 .ground {
-    background-color: #ecc76a;
+    background: linear-gradient(150deg, #ecc76a, #dba51c);
 }
 
 .flying {
@@ -43,41 +45,41 @@
 }
 
 .psychic {
-    background-color: #f56993;
+    background: linear-gradient(150deg, #f67fa3, #f23870);
 }
 
 .bug {
-    background-color: #adbd39;
+    background: linear-gradient(150deg, #bccb53, #93a130);
 }
 
 .rock {
-    background-color: #b7a54c;
+    background: linear-gradient(150deg, #c2b267, #9d8d3f);
 }
 
 .ghost {
-    background-color: #735797;
+    background: linear-gradient(150deg, #876caa, #624a80);
 }
 
 .dragon {
-    background-color: #8151f9;
+    background: linear-gradient(150deg, #946bfa, #5e21f7);
 }
 
 .dark {
-    background-color: #705746;
+    background: linear-gradient(150deg, #8e6f59, #5f4a3b);
 }
 
 .steel {
-    background-color: #babadc;
+    background: linear-gradient(150deg, #c4c4e1, #9292c7);
 }
 
 .fairy {
-    background-color: #f393c3;
+    background: linear-gradient(150deg, #f393c3, #ed5ea6);
 }
 
 /* –––––––––– Colors by type –––––––––––– */
 
 html {
-    background-image: url(../img/background.jpg);
+    background-image: url(../img/background.png);
     background-position: bottom;
     background-size: cover;
     font-family: 'Roboto', sans-serif;
@@ -194,7 +196,22 @@ main > ol {
     height: 5.7em;
     padding: .75em 1em;
     position: relative;
+    animation: fadein .4s forwards;
 }
+
+@keyframes fadein{
+    0% {
+        opacity:0;
+    }
+    100% {
+        opacity:1;
+    }
+}
+
+.card > * {
+    pointer-events: none;
+}
+
 
 .card h2 {
     display: inline-block;
@@ -264,6 +281,147 @@ main > button:active {
 .disable {
     filter: grayscale(1);
     pointer-events: none;
+}
+
+dialog {
+    background-color: #f9f7f7e5;
+    border: none;
+    border-radius: 1.5rem;
+    box-shadow: .3rem .3rem .5rem rgba(0, 0, 0, 0.5);
+    box-sizing: border-box;
+    height: calc(100vh - 2rem);
+    margin: auto;
+    max-height: 39rem;
+    width: min(100vw, 400px);
+    max-width: none;
+    overflow-y: auto;
+    padding: 1rem;
+    animation: fadein .4s forwards;
+    position: relative;
+}
+
+#heart {
+    width: 1.3rem;
+    padding: 0 .1rem;
+}
+
+.circle {
+    border-radius: 50%;
+    display: block;
+    width: 70%;
+    aspect-ratio: 1;
+    position: absolute;
+    right: 50%;
+    transform: translate(50%, -15%);
+    z-index: -50;
+}
+
+.presentation img {
+    display: block;
+    width: 50%;
+    margin: 2rem auto min(16vw + .7rem, 4.3rem);
+}
+
+.details {
+    margin: 0 1rem;
+    border-radius: 1rem;
+    height: auto;
+}
+
+.presentation > div {
+    background-color: #FFF;
+    border-radius: 1rem;
+    justify-content: space-between;
+    display: flex;
+    padding: 1rem;
+    font-weight: 700;
+    opacity: .9;
+    margin: 0 1rem;
+}
+
+.details ol {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+    object-fit: cover;
+}
+
+.details ol::-webkit-scrollbar {
+    display: none; /* Chrome, Safari and Opera */
+}
+
+.details li {
+    scroll-snap-align: start;
+    position: relative;
+}
+
+.details img {
+    height: 50%;
+    width: .6rem;
+    opacity: .05;
+    position: absolute;
+    right: 1.3rem;
+    top: 3.3rem;
+    cursor: pointer;
+    transition: opacity .2s;
+}
+
+.details [alt="Left arrow"] {
+    transform: rotate(180deg);
+    left: .2rem;
+}
+
+.details img:hover {
+    opacity: .15;
+}
+
+.details table {
+    background-color: #FFF;
+    width: min(100vw - 4rem, 400px - 4rem);
+    margin: 1rem 1rem 0 0;
+    font-size: .85em;
+    font-weight: 500;
+    border-radius: 1rem;
+    padding: 0;
+    border-collapse: separate;
+    display: flex;
+    align-content: center;
+    align-items: center;
+    justify-content: center; 
+    height: 10.1rem;
+}
+
+.details li:last-child table {
+    margin: 1rem 0 0 0;
+}
+
+.details td:first-child {
+    color: #999d9f;
+    padding: .2rem 1rem .2rem 0;
+}
+
+#about tr:last-child td:last-child {
+    text-transform: capitalize;
+    font-style: italic;
+}
+
+#stats td:last-child {
+    text-align: right;
+}
+
+#stats td:first-child {
+    padding-right: min(8rem, 30vw - 1.4rem);
+}
+
+.details .bar {
+    margin: .25rem 0 .25rem 1rem;
+    width: calc(.8rem + 20vw);
+    height: .25rem;
+    border-radius: .2rem;
+    background-color: #308541;
+    display: block;
 }
 
 footer {

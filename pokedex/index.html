@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -25,9 +25,51 @@
         <!----- Pokemon cards here! ----->
         </ol>
         <button type="button" onclick="handleButtonClick()">Load more</button>
+        <!----- Pokemon detail here! ----->
+        <dialog>
+            <header>
+                <button type="button" onclick="closeModal()"><img src="img/back.png" alt="Arrow left"></button>
+                <button type="button" onclick="handleHeartClick()"><img id="heart" clicked=false src="./img/heart.png" alt="Heart icon"></button>
+            </header>
+            <section class="presentation">
+                <span class="circle grass"></span>
+                <img src="https://raw.githubusercontent.com/HybridShivam/Pokemon/master/assets/images/001.png" alt="bulbasaur">
+                <div>
+                    <h2>Bulbasaur</h2>
+                    <span>#001</span>
+                </div>
+            </section>
+            <section class="details">
+                <ol>
+                    <li>
+                        <img onclick="handleArrowClick()" src="./img/right-arrow-sharp.png" alt="Right arrow">
+                        <table id="about">
+                        </table>
+                    </li>
+                    <li>
+                        <img onclick="handleArrowClick()" src="./img/right-arrow-sharp.png" alt="Left arrow">
+                        <img onclick="handleArrowClick()" src="./img/right-arrow-sharp.png" alt="Right arrow">
+                        <table id="stats">
+                        </table>
+                    </li>
+                    <li>
+                        <img onclick="handleArrowClick()" src="./img/right-arrow-sharp.png" alt="Left arrow">
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        Soon
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </li>
+                </ol>
+            </section>
+        </dialog>
     </main>
     <footer>
-        <p>Consumindo a PokeAPI – Setembro de 2023</p>
+        <p>Consuming PokeAPI – September, 2023.</p>
     </footer>
 </body>
 </html>
