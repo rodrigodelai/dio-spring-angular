@@ -5,4 +5,5 @@ import me.dio.simplebank.model.User;
 
 public interface UserRepository extends JpaRepository<User, Long> {
 
+	public boolean existsByAccountNumber(String account); 
 }
