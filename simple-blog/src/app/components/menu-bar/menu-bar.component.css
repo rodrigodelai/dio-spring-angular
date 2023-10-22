@@ -1,0 +1,66 @@
+header {
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header > a img {
+    margin-right: 30px;
+    height: 2.5rem;
+    display: block;
+    filter: grayscale(1);
+    background-color: #e4e1e1;
+    padding: .05rem;
+    border-radius: 50%;
+    transition: all .25s;
+    cursor: pointer;
+}
+
+header > a img:hover {
+    filter: grayscale(0);
+}
+
+nav li {
+    font-size: 1rem;
+    display: inline;
+    list-style: none;
+    margin-inline: 1.8rem;
+    text-transform: uppercase;
+    opacity: .5;
+    transition: all .3s;
+    cursor: pointer;
+    user-select: none;
+}
+
+nav li:hover, div li img:hover {
+    opacity: 1;
+}
+
+nav li:active {
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.7);
+}
+
+div {
+    margin-left: auto;
+}
+
+div li {
+    display: inline;
+    margin-left: 1.4rem;
+}
+
+div li img {
+    height: 1.2rem;
+    filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(67deg) brightness(101%) contrast(101%);
+    opacity: .5;
+    display: inline-block;
+    vertical-align: sub;
+    cursor: pointer;
+    transition: all .25s;
+}
+
+hr {
+    opacity: .2;
+    border-top: #FFFFFF00;
+}

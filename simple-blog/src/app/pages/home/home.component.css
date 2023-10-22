@@ -1,0 +1,20 @@
+main {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: 
+    "main-news reg-news";
+    margin: 2.5rem 0;
+}
+
+.main-news {
+    grid-area: "main-news";
+    margin-right: 1.25rem;
+}
+
+.regular-news {
+    grid-area: "reg-news";
+    margin-left: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+}

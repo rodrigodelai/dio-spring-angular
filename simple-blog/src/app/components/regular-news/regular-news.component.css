@@ -1,0 +1,27 @@
+a {
+    text-decoration: none;
+    color: white;
+    display: grid;
+    grid-template-columns: 36% 64%;
+}
+
+img {
+    width: 100%;
+}
+
+div {
+    margin-left: 1.25rem;
+}
+
+span {
+    font-size: .7rem;
+    opacity: .4;
+    margin-bottom: .6rem;
+}
+
+h2 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    opacity: .8;
+    line-height: 1.6rem;
+}
