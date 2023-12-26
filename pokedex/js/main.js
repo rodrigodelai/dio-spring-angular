@@ -2,6 +2,22 @@ let offset = 0;
 
 handleButtonClick();
 
+function handleOpeningClick() {
+    const openingImg = document.querySelector("body > div");
+    const body = document.querySelector("body");
+
+    openingImg.style = "opacity: 0; pointerEvents: none; z-index: -10;";
+    body.style = "transform: scale(1)";
+}
+
+function handleBackToOpening() {
+    const openingImg = document.querySelector("body > div");
+    const body = document.querySelector("body");
+
+    openingImg.style = "opacity: 1; pointerEvents: all; z-index: 10;";
+    body.style = "transform: scale(.1);";
+}
+
 function handleCardClick() {
     // Loads presentation info
     const id = event.target.id.substr(1);
