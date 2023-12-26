@@ -3,10 +3,11 @@ let offset = 0;
 handleButtonClick();
 
 function handleCardClick() {
-    /* ----- Presentation info ----- */
+    // Loads presentation info
     const id = event.target.id.substr(1);
     const name = event.target.childNodes[3].innerText;
 
+    document.querySelector("dialog").id = id;
     document.querySelector(".presentation h2").innerText = name;
     document.querySelector(".presentation h2 + span").innerText = `#${id.padStart("3", 0)}`;
 
@@ -22,7 +23,20 @@ function handleCardClick() {
     
     circle.classList.replace(oldMainType, newMainType);
 
-    /* ----- Details info ----- */
+    // Loads heart image
+    const marked = window.localStorage.getItem(id);
+    const heart = document.querySelector("#heart");
+    
+    if (marked) {
+        heart.src = "./img/dark-heart.png";
+        heart.clicked = true;
+    }
+    else {
+        heart.src = "./img/heart.png";
+        heart.clicked = false;
+    }
+
+    // Loads details info
     pokeApi.getPokemon(id).then(pokemon => {
         let newHtmlStats = convertPokemonToHtmlTableStats(pokemon);
         document.querySelector("#stats").innerHTML = newHtmlStats;
@@ -31,7 +45,7 @@ function handleCardClick() {
         document.querySelector("#about").innerHTML = newHtmlAbout;
     });
     
-    /* ----- Showing modal ----- */
+    // Shows modal
     const modal = document.querySelector("dialog");
     modal.showModal();
 }
@@ -42,9 +56,16 @@ function closeModal() {
 
 function handleHeartClick() {
     const img = document.querySelector("#heart");
+    const id = document.querySelector("dialog").id;
 
-    if (!img.clicked) img.src = "./img/dark-heart.png";
-    else img.src = "./img/heart.png";
+    if (!img.clicked) {
+        img.src = "./img/dark-heart.png";
+        window.localStorage.setItem(id, "1");
+    }
+    else {
+        img.src = "./img/heart.png";
+        window.localStorage.removeItem(id);
+    }
 
     img.clicked = !img.clicked;
 }
