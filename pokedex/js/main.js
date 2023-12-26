@@ -50,11 +50,9 @@ function handleHeartClick() {
 }
 
 function handleArrowClick() {
-    let scroll = 100; 
-
+    let scroll = document.querySelector(".details li").offsetWidth; 
     if (event.target.alt == "Left arrow") scroll *= -1;
-    
-    event.target.parentNode.parentNode.scrollBy(scroll, 0);
+    document.querySelector(".details ol").scrollBy(scroll, 0);
 }
 
 function handleButtonClick() {

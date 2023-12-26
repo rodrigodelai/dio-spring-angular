@@ -8,6 +8,7 @@
     <script src="./js/model.js"></script>
     <script src="./js/pokeapi.js"></script>
     <script src="./js/main.js" defer></script>
+    <link rel="icon" type="image/x-icon" href="/img/poke-icon.svg">
     <title> Simple Pokedex </title>
 </head>
 <body>
@@ -42,27 +43,33 @@
             <section class="details">
                 <ol>
                     <li>
-                        <img onclick="handleArrowClick()" src="./img/right-arrow-sharp.png" alt="Right arrow">
-                        <table id="about">
-                        </table>
+                        <div>
+                            <button disabled onclick="handleArrowClick()"><img src="img/right-arrow-sharp.png" alt="Left arrow"></button>
+                            <table id="about"></table>
+                            <button onclick="handleArrowClick()"><img src="img/right-arrow-sharp.png" alt="Right arrow"></button>
+                        </div>
                     </li>
                     <li>
-                        <img onclick="handleArrowClick()" src="./img/right-arrow-sharp.png" alt="Left arrow">
-                        <img onclick="handleArrowClick()" src="./img/right-arrow-sharp.png" alt="Right arrow">
-                        <table id="stats">
-                        </table>
+                        <div>
+                            <button onclick="handleArrowClick()"><img src="img/right-arrow-sharp.png" alt="Left arrow"></button>
+                            <table id="stats"></table>
+                            <button onclick="handleArrowClick()"><img src="img/right-arrow-sharp.png" alt="Right arrow"></button>
+                        </div>
                     </li>
                     <li>
-                        <img onclick="handleArrowClick()" src="./img/right-arrow-sharp.png" alt="Left arrow">
-                        <table>
-                            <tbody>
-                                <tr>
-                                    <td>
-                                        Soon
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
+                        <div>
+                            <button onclick="handleArrowClick()"><img src="img/right-arrow-sharp.png" alt="Left arrow"></button>
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            Soon
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <button disabled onclick="handleArrowClick()"><img src="img/right-arrow-sharp.png" alt="Right arrow"></button>
+                        </div>
                     </li>
                 </ol>
             </section>

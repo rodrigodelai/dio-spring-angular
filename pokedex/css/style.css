@@ -85,6 +85,10 @@ html {
     font-family: 'Roboto', sans-serif;
 }
 
+button {
+    outline-color: #525253;
+}
+
 body {
     background-color: #f9f7f7e5;
     border: 0px solid black;
@@ -355,35 +359,52 @@ dialog {
 .details li {
     scroll-snap-align: start;
     position: relative;
+    display: flex;
 }
 
-.details img {
-    height: 50%;
-    width: .6rem;
-    opacity: .05;
-    position: absolute;
-    right: 1.3rem;
-    top: 3.3rem;
-    cursor: pointer;
-    transition: opacity .2s;
-}
-
-.details [alt="Left arrow"] {
-    transform: rotate(180deg);
-    left: .2rem;
-}
-
-.details img:hover {
-    opacity: .15;
-}
-
-.details table {
+.details div {
     background-color: #FFF;
     width: min(100vw - 4rem, 400px - 4rem);
     margin: 1rem 1rem 0 0;
     font-size: .85em;
     font-weight: 500;
     border-radius: 1rem;
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.details button {
+    height: 50%;
+    width: .8rem;
+    padding: 0;
+    margin: .5rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.details button:first-child {
+    transform: scaleX(-1);
+}
+
+.details img {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    opacity: .05;
+}
+
+.details img:hover:not([disabled]) {
+    opacity: .15;
+}
+
+.details [disabled] {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.details table {
     padding: 0;
     border-collapse: separate;
     display: flex;
@@ -391,9 +412,10 @@ dialog {
     align-items: center;
     justify-content: center; 
     height: 10.1rem;
+    width: 100%;
 }
 
-.details li:last-child table {
+.details li:last-child div {
     margin: 1rem 0 0 0;
 }
 
@@ -404,7 +426,6 @@ dialog {
 
 #about tr:last-child td:last-child {
     text-transform: capitalize;
-    font-style: italic;
 }
 
 #stats td:last-child {
