@@ -6,8 +6,12 @@ function handleOpeningClick() {
     const openingImg = document.querySelector("body > div");
     const body = document.querySelector("body");
 
-    openingImg.style = "opacity: 0; pointerEvents: none; z-index: -10;";
+    openingImg.style = "opacity: 0; pointerEvents: none; z-index: -10; height: 60%";
     body.style = "transform: scale(1)";
+
+    setTimeout(() => {
+        openingImg.style = "display: none; heigth: 100%";
+    }, 500);
 }
 
 function handleBackToOpening() {
