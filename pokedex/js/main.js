@@ -2,6 +2,10 @@ let offset = 0;
 
 handleButtonClick();
 
+function exibir() {
+    console.log(event.target);
+}
+
 function handleOpeningClick() {
     const openingImg = document.querySelector("body > div");
     const body = document.querySelector("body");
@@ -10,7 +14,7 @@ function handleOpeningClick() {
     body.style = "transform: scale(1)";
 
     setTimeout(() => {
-        openingImg.style = "display: none; heigth: 100%";
+        openingImg.style = "display: none;";
     }, 500);
 }
 
@@ -18,8 +22,33 @@ function handleBackToOpening() {
     const openingImg = document.querySelector("body > div");
     const body = document.querySelector("body");
 
-    openingImg.style = "opacity: 1; pointerEvents: all; z-index: 10;";
+    openingImg.style = "height: 50%; display: block; opacity: 0; pointerEvents: all; z-index: 10;";
     body.style = "transform: scale(.1);";
+
+    setTimeout(() => {
+        openingImg.style = "opacity: 1;";
+    }, 100);
+}
+
+function handleMenuClick() {
+    const nav = document.querySelector("header nav");
+
+    if (nav.clicked) {
+        nav.style = "opacity: 0";
+
+        setTimeout(() => {
+            nav.classList.add("none")
+        }, 500);
+    }
+    else {
+        nav.classList.remove("none");
+        
+        setTimeout(() => {
+            nav.style = "opacity: 1";
+        }, 100);
+    }
+        
+    nav.clicked = !nav.clicked;
 }
 
 function handleCardClick() {

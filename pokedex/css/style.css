@@ -133,7 +133,7 @@ body {
     height: 100%;
     width: calc(100% - 2rem);
     padding: 0;
-    border: 5px solid black;
+    border-radius: 1.4rem;
     margin: 0 1rem 0 0;
     transition: all .3s;
     cursor: pointer;
@@ -144,6 +144,7 @@ header {
     display: flex;
     justify-content: space-between;
     padding: 1rem;
+    position: relative;
 }
 
 header button {
@@ -157,15 +158,19 @@ header button {
     transition: background-color .25s;
 }
 
-header button:hover, header nav:hover {
+header button:hover {
     background-color: #80808020;
+}
+
+header button:active {
+    background-color: #80808030;
 }
 
 header img {
     width: 1.5rem;
 }
 
-header nav {
+.menu-bar {
     background-color: inherit;
     border-radius: 50%;
     cursor: pointer;
@@ -174,13 +179,49 @@ header nav {
     transition: background-color .25s;
 }
 
-.menu-bar {
+.menu-bar span {
     background-color: #525253;
     border-radius: .1rem;
     display: block;
     height: .15rem;
     margin: .20rem 0;
     width: 1.2rem;
+}
+
+header nav {
+    opacity: 0;
+    transition: all .3s;
+    position: absolute;
+    top: 3.3rem;
+    right: 1.5rem;
+    border-radius: .5rem;
+    text-align: center;
+    background-color: #f9f7f7e5;
+    box-shadow: .1rem .1rem .3rem rgba(0, 0, 0, 0.5);
+}
+
+.none {
+    display: none;
+}
+
+header li {
+    padding: .5rem 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: -.2px;
+    text-shadow: 1px 1px 2px #5252532e;
+    cursor: pointer;
+    font-size: .9em;
+    font-weight: 700;
+    text-shadow: .5px .5px 1px #ffffff41;
+}
+
+header li:hover {
+    background-color: #80808020;
+}
+
+header a {
+    color: #525253;
+    text-decoration: none;
 }
 
 main {

@@ -16,11 +16,17 @@
         <img onclick="handleOpeningClick()" src="./img/pokedex.jpg" alt="Pokedex">
     </div>
     <header>
-        <button onclick="handleBackToOpening()" type="button"><img src="img/back.png" alt="Arrow left"></button>
-        <nav>
-            <span class="menu-bar"></span>
-            <span class="menu-bar"></span>
-            <span class="menu-bar"></span>
+        <button onclick="handleBackToOpening()"><img src="img/back.png" alt="Arrow left"></button>
+        <button class="menu-bar" onclick="handleMenuClick()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <nav class="none">
+            <ul>
+                <li><a href="#">Início</a></li>
+                <li><a href="#">Favoritos</a></li>
+            </ul>
         </nav>
     </header>
     <main>
