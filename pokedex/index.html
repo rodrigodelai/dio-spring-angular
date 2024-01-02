@@ -24,65 +24,121 @@
         </button>
         <nav class="none">
             <ul>
-                <li><a href="#">Início</a></li>
-                <li><a href="#">Favoritos</a></li>
+                <li><button onclick="handleHomeClick()">HOME</button></li>
+                <li><button onclick="handleFavoritesClick()">FAVORITES</button></li>
             </ul>
         </nav>
     </header>
     <main>
-        <h1>Pokedex</h1>
-        <ol class="cards">
-        <!----- Pokemon cards here! ----->
-        </ol>
-        <button type="button" onclick="handleButtonClick()">Load more</button>
-        <!----- Pokemon detail here! ----->
-        <dialog>
-            <header>
-                <button type="button" onclick="closeModal()"><img src="img/back.png" alt="Arrow left"></button>
-                <button type="button" onclick="handleHeartClick()"><img id="heart" clicked=false src="./img/heart.png" alt="Heart icon"></button>
-            </header>
-            <section class="presentation">
-                <span class="circle grass"></span>
-                <img src="https://raw.githubusercontent.com/HybridShivam/Pokemon/master/assets/images/001.png" alt="bulbasaur">
-                <div>
-                    <h2>Bulbasaur</h2>
-                    <span>#001</span>
-                </div>
-            </section>
-            <section class="details">
-                <ol>
-                    <li>
-                        <div>
-                            <button disabled onclick="handleArrowClick()"><img src="img/right-arrow-sharp.png" alt="Left arrow"></button>
-                            <table id="about"></table>
-                            <button onclick="handleArrowClick()"><img src="img/right-arrow-sharp.png" alt="Right arrow"></button>
-                        </div>
-                    </li>
-                    <li>
-                        <div>
-                            <button onclick="handleArrowClick()"><img src="img/right-arrow-sharp.png" alt="Left arrow"></button>
-                            <table id="stats"></table>
-                            <button onclick="handleArrowClick()"><img src="img/right-arrow-sharp.png" alt="Right arrow"></button>
-                        </div>
-                    </li>
-                    <li>
-                        <div>
-                            <button onclick="handleArrowClick()"><img src="img/right-arrow-sharp.png" alt="Left arrow"></button>
-                            <table>
-                                <tbody>
-                                    <tr>
-                                        <td>
-                                            Soon
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                            <button disabled onclick="handleArrowClick()"><img src="img/right-arrow-sharp.png" alt="Right arrow"></button>
-                        </div>
-                    </li>
-                </ol>
-            </section>
-        </dialog>
+        <section class="home">
+            <h1>Pokedex</h1>
+            <!----- Pokemon cards here! ----->
+            <ol class="cards">
+            </ol>
+            <button type="button" onclick="handleButtonClick()">Load more</button>
+            <!----- Pokemon detail here! ----->
+            <dialog>
+                <header>
+                    <button type="button" onclick="closeModal()"><img src="img/back.png" alt="Arrow left"></button>
+                    <button type="button" onclick="handleHeartClick()"><img class="heart" clicked=false src="./img/heart.png" alt="Heart icon"></button>
+                </header>
+                <section class="presentation">
+                    <span class="circle grass"></span>
+                    <img src="https://raw.githubusercontent.com/HybridShivam/Pokemon/master/assets/images/001.png" alt="bulbasaur">
+                    <div>
+                        <h2>Bulbasaur</h2>
+                        <span>#001</span>
+                    </div>
+                </section>
+                <section class="details">
+                    <ol>
+                        <li>
+                            <div>
+                                <button disabled onclick="handleArrowClick()"><img src="img/right-arrow-sharp.png" alt="Left arrow"></button>
+                                <table class="about"></table>
+                                <button onclick="handleArrowClick()"><img src="img/right-arrow-sharp.png" alt="Right arrow"></button>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <button onclick="handleArrowClick()"><img src="img/right-arrow-sharp.png" alt="Left arrow"></button>
+                                <table class="stats"></table>
+                                <button onclick="handleArrowClick()"><img src="img/right-arrow-sharp.png" alt="Right arrow"></button>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <button onclick="handleArrowClick()"><img src="img/right-arrow-sharp.png" alt="Left arrow"></button>
+                                <table>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                Soon
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <button disabled onclick="handleArrowClick()"><img src="img/right-arrow-sharp.png" alt="Right arrow"></button>
+                            </div>
+                        </li>
+                    </ol>
+                </section>
+            </dialog>
+        </section>
+        <section class="favorites none">
+            <h1>Favorites</h1>
+            <!----- Pokemon cards here! ----->
+            <ol class="cards">
+            </ol>
+            <!----- Pokemon detail here! ----->
+            <dialog>
+                <header>
+                    <button type="button" onclick="closeModal()"><img src="img/back.png" alt="Arrow left"></button>
+                    <button type="button" onclick="handleHeartClick()"><img class="heart" clicked=false src="./img/heart.png" alt="Heart icon"></button>
+                </header>
+                <section class="presentation">
+                    <span class="circle grass"></span>
+                    <img src="https://raw.githubusercontent.com/HybridShivam/Pokemon/master/assets/images/001.png" alt="bulbasaur">
+                    <div>
+                        <h2>Bulbasaur</h2>
+                        <span>#001</span>
+                    </div>
+                </section>
+                <section class="details">
+                    <ol>
+                        <li>
+                            <div>
+                                <button disabled onclick="handleArrowClick()"><img src="img/right-arrow-sharp.png" alt="Left arrow"></button>
+                                <table class="about"></table>
+                                <button onclick="handleArrowClick()"><img src="img/right-arrow-sharp.png" alt="Right arrow"></button>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <button onclick="handleArrowClick()"><img src="img/right-arrow-sharp.png" alt="Left arrow"></button>
+                                <table class="stats"></table>
+                                <button onclick="handleArrowClick()"><img src="img/right-arrow-sharp.png" alt="Right arrow"></button>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <button onclick="handleArrowClick()"><img src="img/right-arrow-sharp.png" alt="Left arrow"></button>
+                                <table>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                Soon
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <button disabled onclick="handleArrowClick()"><img src="img/right-arrow-sharp.png" alt="Right arrow"></button>
+                            </div>
+                        </li>
+                    </ol>
+                </section>
+            </dialog>
+        </section>
     </main>
     <footer>
         <p>Consuming PokeAPI – September, 2023.</p>

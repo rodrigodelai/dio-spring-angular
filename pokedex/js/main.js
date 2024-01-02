@@ -1,10 +1,7 @@
 let offset = 0;
+let page = 0;
 
 handleButtonClick();
-
-function exibir() {
-    console.log(event.target);
-}
 
 function handleOpeningClick() {
     const openingImg = document.querySelector("body > div");
@@ -26,8 +23,8 @@ function handleBackToOpening() {
     body.style = "transform: scale(.1);";
 
     setTimeout(() => {
-        openingImg.style = "opacity: 1;";
-    }, 100);
+        openingImg.style = "opacity: 1";
+    }, 200);
 }
 
 function handleMenuClick() {
@@ -51,30 +48,68 @@ function handleMenuClick() {
     nav.clicked = !nav.clicked;
 }
 
+function closeAll() {
+    const sections = document.querySelectorAll("main > section");
+    sections.forEach(section => {
+        section.style = "opacity: 0";
+
+        setTimeout(() => {
+            section.classList.add("none");
+        }, 300);
+    });
+}
+
+function handleHomeClick() {
+    closeAll();
+
+    setTimeout(() => {
+        const home = document.querySelector(".home");
+        home.classList.remove("none");
+        home.style = "opacity: 1";
+    }, 400);
+
+    page = 0;
+}
+
+function handleFavoritesClick() {
+    closeAll();
+
+    setTimeout(() => {
+        const favorites = document.querySelector(".favorites");
+        favorites.classList.remove("none");
+        favorites.style = "opacity: 1";
+    }, 400);
+
+    LoadFavorites();
+
+    page = 1;
+}
+
 function handleCardClick() {
     // Loads presentation info
-    const id = event.target.id.substr(1);
+    const id = event.target.classList[0].substr(1);
     const name = event.target.childNodes[3].innerText;
 
-    document.querySelector("dialog").id = id;
-    document.querySelector(".presentation h2").innerText = name;
-    document.querySelector(".presentation h2 + span").innerText = `#${id.padStart("3", 0)}`;
+    document.querySelectorAll("dialog")[page].id = id;
+    document.querySelectorAll(".presentation h2")[page].innerText = name;
+    document.querySelectorAll(".presentation h2 + span")[page].innerText = `#${id.padStart("3", 0)}`;
 
     const newImg = pokeApi.getImgUrl(id)
-    const img = document.querySelector(".presentation img");
+    const img = document.querySelectorAll(".presentation img")[page];
 
     img.src = newImg;
     img.alt = name;
 
-    const circle = document.querySelector(".circle");
+    const circle = document.querySelectorAll(".circle")[page];
     const oldMainType = circle.classList[1];
-    const newMainType = document.querySelector(`#p${id} li`).classList[0];
+    const items = document.querySelectorAll(`.p${id} li`);
+    const newMainType = items[items.length - 1].classList[0];
     
     circle.classList.replace(oldMainType, newMainType);
 
     // Loads heart image
     const marked = window.localStorage.getItem(id);
-    const heart = document.querySelector("#heart");
+    const heart = document.querySelectorAll(".heart")[page];
     
     if (marked) {
         heart.src = "./img/dark-heart.png";
@@ -88,24 +123,24 @@ function handleCardClick() {
     // Loads details info
     pokeApi.getPokemon(id).then(pokemon => {
         let newHtmlStats = convertPokemonToHtmlTableStats(pokemon);
-        document.querySelector("#stats").innerHTML = newHtmlStats;
+        document.querySelectorAll(".stats")[page].innerHTML = newHtmlStats;
         
         let newHtmlAbout = convertPokemonToHtmlTableAbout(pokemon);
-        document.querySelector("#about").innerHTML = newHtmlAbout;
+        document.querySelectorAll(".about")[page].innerHTML = newHtmlAbout;
     });
     
     // Shows modal
-    const modal = document.querySelector("dialog");
+    const modal = document.querySelectorAll("dialog")[page];
     modal.showModal();
 }
 
 function closeModal() {
-    document.querySelector("dialog").close();
+    document.querySelectorAll("dialog")[page].close();
 }
 
 function handleHeartClick() {
-    const img = document.querySelector("#heart");
-    const id = document.querySelector("dialog").id;
+    const img = document.querySelectorAll(".heart")[page];
+    const id = document.querySelectorAll("dialog")[page].id;
 
     if (!img.clicked) {
         img.src = "./img/dark-heart.png";
@@ -117,19 +152,25 @@ function handleHeartClick() {
     }
 
     img.clicked = !img.clicked;
+
+    if (page) {
+        const items = document.querySelectorAll(".p" + id);
+        const item = items[items.length - 1];
+        item.classList.add("none");
+    }
 }
 
 function handleArrowClick() {
-    let scroll = document.querySelector(".details li").offsetWidth; 
+    let scroll = document.querySelectorAll(".details li")[page].offsetWidth; 
     if (event.target.alt == "Left arrow") scroll *= -1;
-    document.querySelector(".details ol").scrollBy(scroll, 0);
+    document.querySelectorAll(".details ol")[page].scrollBy(scroll, 0);
 }
 
 function handleButtonClick() {
     pokeApi.getPokemonList(offset).then(pokemonList => {
         let newHtml = "";
         pokemonList.forEach(pokemon => { newHtml += convertPokemonToHtmlCard(pokemon) });
-        document.querySelector(".cards").insertAdjacentHTML("beforeend", newHtml);
+        document.querySelector(".home .cards").insertAdjacentHTML("beforeend", newHtml);
     });
     
     offset += 12;
@@ -140,7 +181,7 @@ function handleButtonClick() {
 
 function convertPokemonToHtmlCard(pokemon) {
     return `
-        <li id="p${pokemon.id}" class="card ${pokemon.mainType}" onclick="handleCardClick()">
+        <li class="p${pokemon.id} card ${pokemon.mainType}" onclick="handleCardClick()">
             <span class="id">#${pokemon.id.padStart(3,'0')}</span>
             <h2>${pokemon.name}</h2>
             <ol class="types">
@@ -200,4 +241,16 @@ function convertPokemonToHtmlTableStats(pokemon) {
                 <td>${pokemon.stats.speed}</td>
             </tr>
         </tbody>`
+}
+
+function LoadFavorites() {
+    document.querySelector(".favorites .cards").innerHTML = "";
+
+    const storage = window.localStorage;
+    const ids = Object.keys(storage).map(str => Number(str)).sort((a,b) => a - b);
+    
+    ids.forEach(id => pokeApi.getPokemon(id).then((pokemon) => {
+        const newHtml = convertPokemonToHtmlCard(pokemon);
+        document.querySelector(".favorites .cards").insertAdjacentHTML("beforeend", newHtml);
+    }));
 }

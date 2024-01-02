@@ -1,6 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
-@import url('https://fonts.cdnfonts.com/css/pokemon-solid');
-                
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&display=swap');
 
 /* –––––––––– Colors by type –––––––––––– */
 
@@ -147,7 +145,7 @@ header {
     position: relative;
 }
 
-header button {
+header > button {
     background-color: inherit;
     border: none;
     border-radius: 50%;
@@ -158,11 +156,11 @@ header button {
     transition: background-color .25s;
 }
 
-header button:hover {
+header > button:hover {
     background-color: #80808020;
 }
 
-header button:active {
+header > button:active {
     background-color: #80808030;
 }
 
@@ -200,37 +198,44 @@ header nav {
     box-shadow: .1rem .1rem .3rem rgba(0, 0, 0, 0.5);
 }
 
-.none {
-    display: none;
-}
-
 header li {
-    padding: .5rem 1.5rem;
-    text-transform: uppercase;
-    letter-spacing: -.2px;
-    text-shadow: 1px 1px 2px #5252532e;
-    cursor: pointer;
-    font-size: .9em;
-    font-weight: 700;
-    text-shadow: .5px .5px 1px #ffffff41;
+    box-sizing: border-box;
+    width: calc(25vw - 1.5rem);
+    max-width: 175px;
+    padding: 0;
 }
 
 header li:hover {
     background-color: #80808020;
 }
 
-header a {
-    color: #525253;
-    text-decoration: none;
+header li:active {
+    background-color: #80808030;
 }
 
-main {
+header nav button {
+    color: #525253;
+    text-decoration: none;
+    border: none;
+    background: none;
+    width: 100%;
+    padding: .5rem 1rem;
+    letter-spacing: -.2px;
+    font-size: .9em;
+    font-weight: 700;
+    text-shadow: .5px .5px 1px #ffffff41;
+    margin: 0;
+    cursor: pointer;
+}
+
+.home, .favorites {
     display: flex;
     flex-direction: column;
     padding: 1rem;
+    transition: all .5s;
 }
 
-main h1 {
+.home h1, .favorites h1 {
     color: #525253;
     font-size: 1.5rem;
     font-weight: 900;
@@ -238,7 +243,7 @@ main h1 {
     text-shadow: 1px 1px 2px #5252532e;
 }
 
-main > ol {
+.cards {
     align-content: start;
     display: grid;
     gap: 1rem;
@@ -275,11 +280,11 @@ main > ol {
     cursor: pointer;
     font-size: .75em;
     font-size: min(2vw, 16px);
-    height: 4.5em;
     height: 5.7em;
     padding: .75em 1em;
     position: relative;
-    animation: fadein .4s forwards;
+    animation: fadein .4s forwards; 
+    transition: all .5s;
 }
 
 @keyframes fadein{
@@ -295,11 +300,10 @@ main > ol {
     pointer-events: none;
 }
 
-
 .card h2 {
     display: inline-block;
     font-size: .9em;
-    font-weight: 700;
+    font-weight: 600;
     margin-bottom: .35em;
     text-shadow: .5px .5px 1px #ffffff41;
     text-transform: capitalize;
@@ -320,7 +324,7 @@ main > ol {
     border-radius: 1em;
     filter: brightness(1.1);
     font-size: .6em;
-    font-weight: 700;
+    font-weight: 500;
     margin: .4em 0;
     padding: .25em .6em;
     text-transform: capitalize;
@@ -336,7 +340,7 @@ main > ol {
     width: 38%;
 }
 
-main > button {
+.home > button {
     align-self: center;
     background-color: #6C7ADC;
     border: none;
@@ -349,13 +353,13 @@ main > button {
     user-select: none;
 }
 
-main > button:hover {
+.home > button:hover {
     box-shadow: .2rem .2rem .2rem #0004;
     filter: brightness(1.05);
     transform: scale(1.05);
 }
 
-main > button:active {
+.home > button:active {
     box-shadow: .1rem .1rem .1rem #0004;
     filter: brightness(1);
     transform: scale(1.02);
@@ -383,7 +387,7 @@ dialog {
     position: relative;
 }
 
-#heart {
+.heart {
     width: 1.3rem;
     padding: 0 .1rem;
 }
@@ -503,15 +507,15 @@ dialog {
     padding: .2rem 1rem .2rem 0;
 }
 
-#about tr:last-child td:last-child {
+.about tr:last-child td:last-child {
     text-transform: capitalize;
 }
 
-#stats td:last-child {
+.stats td:last-child {
     text-align: right;
 }
 
-#stats td:first-child {
+.stats td:first-child {
     padding-right: min(8rem, 30vw - 1.4rem);
 }
 
@@ -530,12 +534,28 @@ footer {
     padding: .5rem;
     text-align: center;
     text-shadow: .5px .5px 1px #ffffff41;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 2rem;
+}
+
+.none {
+    display: none;
+}
+
+.hidden {
+    opacity: 0;
 }
 
 @media (max-width: 700px) {
-    main > ol {
+    .cards {
         grid-template-columns: 1fr 1fr 1fr;
-    }
+    } 
+    
+    header li {
+        width: calc(33vw - 3rem);
+    }          
 
     .card {
         font-size: 2.4vw;
@@ -543,7 +563,11 @@ footer {
 }
 
 @media (max-width: 530px) {
-    main > ol {
+    header li {
+        width: calc(50vw - 3rem);
+    }
+
+    .cards {
         grid-template-columns: 1fr 1fr;
     }
 
@@ -551,14 +575,13 @@ footer {
         left: -10%;
     }
 
-
     .card {
         font-size: 3.5vw;
     }
 }
 
 @media (max-width: 370px) {
-    main > ol {
+    .cards {
         grid-template-columns: 1fr;
     }
 
