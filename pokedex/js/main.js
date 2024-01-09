@@ -16,6 +16,9 @@ function handleOpeningClick() {
 }
 
 function handleBackToOpening() {
+    // Collapses menu
+    if (isMenuClicked()) handleMenuClick();
+
     const openingImg = document.querySelector("body > div");
     const body = document.querySelector("body");
 
@@ -25,6 +28,10 @@ function handleBackToOpening() {
     setTimeout(() => {
         openingImg.style = "opacity: 1";
     }, 200);
+}
+
+function isMenuClicked() {
+    return document.querySelector("header nav").clicked;
 }
 
 function handleMenuClick() {
@@ -68,6 +75,8 @@ function handleHomeClick() {
         home.style = "opacity: 1";
     }, 400);
 
+    handleMenuClick();
+
     page = 0;
 }
 
@@ -81,11 +90,15 @@ function handleFavoritesClick() {
     }, 400);
 
     LoadFavorites();
+    handleMenuClick();
 
     page = 1;
 }
 
 function handleCardClick() {
+    // Collapses menu
+    if (isMenuClicked()) handleMenuClick();
+
     // Loads presentation info
     const id = event.target.classList[0].substr(1);
     const name = event.target.childNodes[3].innerText;
@@ -122,16 +135,20 @@ function handleCardClick() {
 
     // Loads details info
     pokeApi.getPokemon(id).then(pokemon => {
-        let newHtmlStats = convertPokemonToHtmlTableStats(pokemon);
-        document.querySelectorAll(".stats")[page].innerHTML = newHtmlStats;
-        
         let newHtmlAbout = convertPokemonToHtmlTableAbout(pokemon);
         document.querySelectorAll(".about")[page].innerHTML = newHtmlAbout;
+
+        let newHtmlStats = convertPokemonToHtmlTableStats(pokemon);
+        document.querySelectorAll(".stats")[page].innerHTML = newHtmlStats;
     });
     
     // Shows modal
     const modal = document.querySelectorAll("dialog")[page];
     modal.showModal();
+
+    // Scroll to first details card
+    const cardList = document.querySelectorAll(".details ol")[page]; 
+    cardList.scrollBy(-3 * cardList.childNodes[1].offsetWidth, 0);
 }
 
 function closeModal() {
@@ -161,9 +178,16 @@ function handleHeartClick() {
 }
 
 function handleArrowClick() {
-    let scroll = document.querySelectorAll(".details li")[page].offsetWidth; 
-    if (event.target.alt == "Left arrow") scroll *= -1;
-    document.querySelectorAll(".details ol")[page].scrollBy(scroll, 0);
+    const cardList = document.querySelectorAll(".details ol")[page]; 
+    let scroll = cardList.childNodes[1].offsetWidth;
+
+    if (event.target.childNodes[0] && event.target.childNodes[0].alt == "Left arrow")
+        scroll *= -1; 
+   
+    if (event.target.alt == "Left arrow")
+        scroll *= -1;
+        
+    cardList.scrollBy(scroll, 0);
 }
 
 function handleButtonClick() {
