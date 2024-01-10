@@ -231,7 +231,7 @@ header nav button {
 .home, .favorites {
     display: flex;
     flex-direction: column;
-    padding: 1rem;
+    padding: 1rem .5rem;
     transition: all .5s;
 }
 
@@ -241,6 +241,7 @@ header nav button {
     font-weight: 900;
     letter-spacing: -.2px;
     text-shadow: 1px 1px 2px #5252532e;
+    padding: 0 .6rem;
 }
 
 .cards {
@@ -252,6 +253,7 @@ header nav button {
     margin: 1.5rem 0;
     overflow-y: auto;
     padding-bottom: 4px;
+    padding: .25rem .6rem;
 }
 
 ::-webkit-scrollbar {
@@ -294,6 +296,12 @@ header nav button {
     100% {
         opacity:1;
     }
+}
+
+.card:hover {
+    box-shadow: 3px 3px 4px #474747b9;
+    filter: brightness(1.02);
+    transform: scale(1.04);
 }
 
 .card > * {
