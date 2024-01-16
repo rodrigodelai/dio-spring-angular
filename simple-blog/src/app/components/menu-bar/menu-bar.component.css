@@ -1,11 +1,11 @@
-header {
+:host {
     height: 80px;
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
-header > a img {
+:host > a img {
     margin-right: 30px;
     height: 2.5rem;
     display: block;
@@ -17,8 +17,13 @@ header > a img {
     cursor: pointer;
 }
 
-header > a img:hover {
+:host > a img:hover {
     filter: grayscale(0);
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
 }
 
 nav li {
@@ -58,9 +63,4 @@ div li img {
     vertical-align: sub;
     cursor: pointer;
     transition: all .25s;
-}
-
-hr {
-    opacity: .2;
-    border-top: #FFFFFF00;
 }

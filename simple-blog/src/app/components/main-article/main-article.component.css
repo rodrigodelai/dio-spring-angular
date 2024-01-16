@@ -1,0 +1,20 @@
+img {
+    width: 40%;
+    float: left;
+    margin: 0 1.75rem 1.75rem 0; 
+}
+
+h2 {
+    text-align: left;
+    font-size: 2.2rem;
+    margin-bottom: .75rem;
+}
+
+p {
+    font-size: 1.1rem;
+    opacity: .6;
+    margin-bottom: 1rem;
+    line-height: 1.4rem;
+    font-weight: 200;
+    letter-spacing: 1.2px;
+}

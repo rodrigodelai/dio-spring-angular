@@ -1,0 +1,8 @@
+<section>
+    <app-main-article [identifier] = "identifier"></app-main-article>
+</section>
+<hr>
+<section>
+    <app-regular-post [identifier]="identifier % 3 + 1" (click)="scrollTop()"></app-regular-post>
+    <app-regular-post [identifier]="(identifier + 1) % 3 + 1" (click)="scrollTop()"></app-regular-post>
+</section>

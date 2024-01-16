@@ -3,6 +3,7 @@ a {
     color: white;
     display: grid;
     grid-template-columns: 36% 64%;
+    align-items: top;
 }
 
 img {
@@ -24,4 +25,6 @@ h2 {
     font-weight: 600;
     opacity: .8;
     line-height: 1.6rem;
+    margin-top: .3rem;
 }
+
