@@ -1,0 +1,25 @@
+header {
+    /* border: 1px solid rgb(182, 178, 178); */
+    background-color: #FEFEFE;
+    border-radius: .5rem;
+    aspect-ratio: 3.5/1;
+    display: flex;
+    box-shadow: 0 3px 10px 0 #40485260;
+    padding: 1rem;
+}
+
+header > img {
+    width: 65%;
+    margin: auto;
+}
+
+footer {
+    margin-top: .5rem;
+    background-color: #FEFEFE;
+    border-radius: .5rem;
+    padding: 1rem;
+    text-align: center;
+    font-size: .7rem;
+    box-shadow: 0 3px 10px 0 #40485260;
+    font-weight: 600;
+}
