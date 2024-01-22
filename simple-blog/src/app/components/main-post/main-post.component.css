@@ -1,6 +1,11 @@
 a {
     text-decoration: none;
     color: white;
+    transition: all .15s;
+}
+
+a:hover {
+    filter: brightness(1.2);
 }
 
 img {
@@ -13,6 +18,7 @@ span {
     font-size: .7rem;
     opacity: .4;
     margin: .6rem 0;
+    display: block;
 }
 
 h2 {

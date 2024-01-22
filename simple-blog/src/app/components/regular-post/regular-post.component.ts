@@ -1,6 +1,6 @@
 import { Component, Input, OnChanges, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { FakeDatabase } from 'src/app/data/FakeDatabase';
+import { Database } from 'src/app/data/FakeDatabase';
 
 @Component({
   selector: 'app-regular-post',
@@ -36,7 +36,7 @@ export class RegularPostComponent implements OnChanges {
 	}
 
   	setAttributesById(identifier: number) {
-		const article = FakeDatabase.filter(article => article.id == identifier);
+		const article = Database.filter(article => article.id == identifier);
 		
 		if (article.length) {
 			this.img = article[0].img;

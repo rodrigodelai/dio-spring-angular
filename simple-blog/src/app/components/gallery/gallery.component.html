@@ -1,0 +1,10 @@
+<h3>{{ title }}</h3>
+<div>
+    <button (click)="scrollX(-1)"><img src="../../../assets/images/left-arrow.png" alt="Left arrow"></button>
+    <ul>
+        <li *ngFor="let article of data"><app-regular-post [identifier]="article.id"></app-regular-post></li>
+    </ul>
+    <button (click)="scrollX(1)"><img src="../../../assets/images/left-arrow.png" alt="Left arrow"></button>
+</div>
+
+

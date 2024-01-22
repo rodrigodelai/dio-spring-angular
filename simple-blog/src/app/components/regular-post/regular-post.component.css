@@ -6,8 +6,13 @@ a {
     align-items: top;
 }
 
+a:hover {
+    filter: brightness(1.2);
+}
+
 img {
     width: 100%;
+    align-self: center;
 }
 
 div {
@@ -26,5 +31,11 @@ h2 {
     opacity: .8;
     line-height: 1.6rem;
     margin-top: .3rem;
+    /* height: 3.4rem; */
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 

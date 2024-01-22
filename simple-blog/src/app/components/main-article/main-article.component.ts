@@ -1,5 +1,5 @@
 import { Component, Input, OnInit, OnChanges } from '@angular/core';
-import { FakeDatabase } from '../../data/FakeDatabase'
+import { Database } from '../../data/FakeDatabase'
 
 @Component({
     selector: 'app-main-article',
@@ -26,7 +26,7 @@ export class MainArticleComponent implements OnChanges{
 	}
 
   	setAttributesById(identifier: number) {
-		const article = FakeDatabase.filter(article => article.id == identifier);
+		const article = Database.filter(article => article.id == identifier);
 		
 		if (article.length) {
 			this.img = article[0].img;

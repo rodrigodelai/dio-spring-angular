@@ -1,0 +1,52 @@
+h3 {
+    margin-top: 2.5rem;
+    font-size: 1.5rem;
+}
+
+div {
+    display: grid;
+    grid-template-columns: 1rem 1fr 1rem;
+    margin-top: 1.25rem;
+    gap: 1rem
+}
+
+button {
+    background-color: rgba(255, 255, 255, 0.2);
+    border: none;
+    cursor: pointer;
+    transition: all .2s;
+}
+
+button:hover {
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+img {
+    width: 100%;
+}
+
+button:last-child img {
+    transform: rotate(180deg);
+}
+
+ul {
+    display: grid;
+    grid-template-columns: repeat(4, min(calc(540px - 4rem), calc(50vw - 4rem)));
+    overflow-x: auto;
+    list-style-type: none;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+    object-fit: cover;
+    gap: 1rem
+}
+
+ul::-webkit-scrollbar {
+    display: none; /* Chrome, Safari and Opera */
+}
+
+li {
+    scroll-snap-align: start;
+    position: relative;
+    /* width: min(calc(540px - 2rem), calc(50vw - 2rem)); */
+}
