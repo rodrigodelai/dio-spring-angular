@@ -11,7 +11,7 @@
     padding: 1rem;
 }
 
-h2 {
+h2, h3 {
     text-align: center;
     margin: 1rem;
 }
@@ -43,6 +43,20 @@ li {
 
 li:hover {
     transform: scale(1.02);
+    background-color: #ef311c;
+    color: #FFF
+}
+
+button {
+    padding: .5rem;
+    border-radius: .3rem;
+    transition: all .3s;
+    cursor: pointer;
+    border: 1px solid rgba(128, 128, 128, 0.61);
+    background-color: #ffffff00;
+}
+
+button:hover {
     background-color: #ef311c;
     color: #FFF
 }

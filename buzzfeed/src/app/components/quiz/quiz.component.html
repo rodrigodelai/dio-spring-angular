@@ -1,7 +1,7 @@
-<h2>Qual bicho provoca a Doença de Chagas?</h2>
-<ul>
-    <li>Alternativa A</li>
-    <li>Alternativa B</li>
-    <li>Alternativa C</li>
-    <li>Alternativa D</li>
+<h2>{{ title }}</h2>
+<h3 *ngIf="!done">{{ questions[questionIndex] }}</h3>
+<ul *ngIf="!done">
+    <li *ngFor="let answer of getRandom(answers[answerIndex])" (click)="saveAnswer(answer.alias)">{{ answer.name }}</li>
 </ul>
+<p *ngIf="done"> {{ hits >= questions.length * 0.9 ? "Parabéns!" : ""}} Você acertou {{ hits }} de {{ questions.length }} questões.</p>
+<button *ngIf="done" (click)="restart()">Recomeçar</button>
